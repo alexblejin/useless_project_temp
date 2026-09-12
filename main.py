@@ -83,8 +83,18 @@ def list_careers():
 # Mount static files
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
+@app.get("/app.js")
+def serve_app_js():
+    root_app = os.path.join(os.path.dirname(__file__), "app.js")
+    if os.path.exists(root_app):
+        return FileResponse(root_app)
+    return FileResponse(os.path.join(STATIC_DIR, "app.js"))
+
 @app.get("/")
 def serve_home():
+    root_index = os.path.join(os.path.dirname(__file__), "index.html")
+    if os.path.exists(root_index):
+        return FileResponse(root_index)
     index_path = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)

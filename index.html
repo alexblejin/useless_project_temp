@@ -1,1 +1,419 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ജാതകംGPT — AI ജ്യോത്സ്യൻ | Brahmasree Biju</title>
+  <!-- Google Fonts: Space Grotesk & Noto Sans Malayalam -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600;700;900&family=Space+Grotesk:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            malayalam: ['"Noto Sans Malayalam"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brandYellow: '#FFE600',
+            brandOrange: '#FF5C00',
+            brandPurple: '#7B2CBF',
+            brandCyan: '#00F0FF',
+            brandGreen: '#10B981',
+            brandBg: '#FFFDF9',
+          },
+          boxShadow: {
+            'brutal': '4px 4px 0px 0px #000000',
+            'brutal-lg': '7px 7px 0px 0px #000000',
+            'brutal-sm': '2px 2px 0px 0px #000000',
+            'brutal-active': '1px 1px 0px 0px #000000',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFFDF9;
+      background-image: radial-gradient(#00000018 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+    }
+    .scanner-laser {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #FF5C00, #FFE600, #FF5C00, transparent);
+      box-shadow: 0 0 16px #FF5C00, 0 0 8px #FFE600;
+      animation: scanLaser 2.2s ease-in-out infinite alternate;
+    }
+    @keyframes scanLaser {
+      0% { top: 6%; opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { top: 94%; opacity: 0.5; }
+    }
+  </style>
+</head>
+<body class="font-malayalam text-gray-900 min-h-screen flex flex-col justify-between selection:bg-brandYellow selection:text-black antialiased">
+
+  <!-- Header / Navigation Bar -->
+  <header class="w-full border-b-2 border-black bg-white px-4 py-3 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="showScreen('landing')">
+        <span class="text-3xl filter drop-shadow-sm hover:rotate-12 transition transform">🔮</span>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-display font-extrabold text-xl md:text-2xl tracking-tight leading-none">
+              ജാതകം<span class="text-brandOrange bg-brandYellow px-1.5 py-0.5 rounded border border-black shadow-brutal-sm ml-1 text-sm md:text-base">GPT</span>
+            </h1>
+          </div>
+          <p class="text-xs text-gray-600 font-bold tracking-wide">ബ്രഹ്മശ്രീ ബിജു • AI ജ്യോത്സ്യൻ</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="hidden sm:inline-flex items-center gap-1 px-3 py-1 text-xs font-black bg-brandYellow border-2 border-black rounded-full shadow-brutal-sm">
+          <span>⚡</span> CYBER ASTROLOGY
+        </span>
+        <button id="soundToggleBtn" class="px-2.5 py-1.5 border-2 border-black rounded-xl bg-white hover:bg-yellow-100 transition shadow-brutal-sm text-sm font-bold flex items-center gap-1" title="ശബ്ദം On/Off">
+          <span>🔊</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow flex items-center justify-center p-3 md:p-6">
+    <div class="w-full max-w-xl">
+
+      <!-- ================= SCREEN 1: LANDING ================= -->
+      <div id="screenLanding" class="space-y-6">
+        <!-- Main Hero Card -->
+        <div class="bg-white border-2 border-black rounded-2xl p-6 md:p-8 shadow-brutal-lg relative overflow-hidden">
+          
+          <!-- Playful Corner Sticker -->
+          <div class="absolute -top-3 -right-3 bg-brandYellow border-2 border-black rounded-full px-4 py-1.5 text-xs font-black rotate-12 shadow-brutal-sm uppercase tracking-wider">
+            100% ശുദ്ധ തമാശ
+          </div>
+
+          <div class="text-center space-y-5 pt-2">
+            <!-- Biju Avatar with Retro Ring -->
+            <div class="relative inline-block">
+              <div class="inline-flex items-center justify-center w-24 h-24 bg-amber-100 border-2 border-black rounded-full text-5xl shadow-brutal mx-auto relative z-10 hover:scale-105 transition-transform">
+                🧙‍♂️
+              </div>
+              <div class="absolute -bottom-1 -right-2 bg-brandOrange text-white text-xs font-black px-2 py-0.5 rounded-md border border-black shadow-brutal-sm z-20">
+                AI ബിജു
+              </div>
+            </div>
+
+            <!-- Title & Identity -->
+            <div class="space-y-1.5">
+              <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-brandPurple bg-purple-100 border border-black px-2.5 py-0.5 rounded-full shadow-brutal-sm font-display">
+                Futuristic Malayalam Astrometry
+              </span>
+              <h2 class="text-2xl md:text-3xl font-black text-black leading-tight">
+                ബ്രഹ്മശ്രീ ബിജു <br>
+                <span class="text-brandOrange font-black text-lg md:text-2xl">
+                  കേരളത്തിലെ ആദ്യത്തെ AI ജ്യോത്സ്യൻ
+                </span>
+              </h2>
+            </div>
+
+            <!-- Tagline Box -->
+            <div class="p-3.5 bg-yellow-50 border-2 border-black rounded-xl shadow-brutal-sm">
+              <p class="text-base md:text-lg text-black font-extrabold leading-snug">
+                “മുഖം സ്കാൻ ചെയ്യൂ. ഭാവി കേൾക്കൂ. വിശ്വസിക്കരുത്.”
+              </p>
+              <p class="text-xs text-gray-700 font-semibold mt-1">
+                ക്യാമറയിൽ നോക്കൂ... സ്കാനിംഗ് സമയം മുതൽ ബിജു നേരിട്ട് സംസാരിച്ചു തുടങ്ങും!
+              </p>
+            </div>
+
+            <!-- Visual Pills -->
+            <div class="flex flex-wrap justify-center gap-2 pt-1 text-xs font-black">
+              <span class="bg-blue-100 text-blue-900 border-2 border-black px-3 py-1 rounded-full shadow-brutal-sm flex items-center gap-1">
+                <span>🔊</span> തത്സമയ ശബ്ദ സ്കാൻ
+              </span>
+              <span class="bg-purple-100 text-purple-900 border-2 border-black px-3 py-1 rounded-full shadow-brutal-sm flex items-center gap-1">
+                <span>💘</span> പ്രണയ ജാതകം
+              </span>
+              <span class="bg-green-100 text-green-900 border-2 border-black px-3 py-1 rounded-full shadow-brutal-sm flex items-center gap-1">
+                <span>💰</span> ധനയോഗം & പരിഹാരം
+              </span>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="pt-3">
+              <button id="startBtn" class="w-full py-4 px-6 bg-brandOrange hover:bg-orange-600 text-white font-black text-xl md:text-2xl rounded-2xl border-2 border-black shadow-brutal hover:shadow-brutal-active active:translate-x-0.5 active:translate-y-0.5 transition flex items-center justify-center gap-3 group cursor-pointer">
+                <span class="text-2xl group-hover:scale-125 transition-transform">🔮</span>
+                <span>ഭാവി നോക്കാം</span>
+                <span class="text-xl group-hover:translate-x-1 transition-transform">➔</span>
+              </button>
+            </div>
+
+            <!-- Humorous Disclaimer -->
+            <div class="pt-2 text-center border-t border-gray-200">
+              <p class="text-xs text-gray-500 font-medium">
+                ⚠️ <span class="font-bold text-gray-700">മുന്നറിയിപ്പ്:</span> ഇത് വെറും കോമഡി സറ്റയർ ആണ്. വ്യക്തിത്വമോ ഭാവിയോ പ്രവചിക്കുന്നതല്ല.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= SCREEN 2: CAMERA & SCANNER ================= -->
+      <div id="screenScanner" class="hidden space-y-4">
+        <div class="bg-white border-2 border-black rounded-2xl p-4 md:p-6 shadow-brutal-lg">
+          
+          <!-- Scanner Header -->
+          <div class="flex items-center justify-between pb-3 border-b-2 border-black mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500 animate-ping"></div>
+              <span class="font-display font-extrabold text-xs md:text-sm tracking-wider uppercase text-black">
+                CYBER-ASTRO HUD v2.5 • LIVE AUDIO
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="flipCamBtn" class="text-xs font-black text-gray-700 hover:text-black border-2 border-black px-2 py-1 rounded-lg bg-yellow-100 hover:bg-yellow-200 shadow-brutal-sm transition cursor-pointer" title="ക്യാമറ മാറ്റുക">
+                🔄 Flip
+              </button>
+              <button id="cancelScanBtn" class="text-xs font-black text-gray-700 hover:text-black border-2 border-black px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 shadow-brutal-sm transition cursor-pointer">
+                ✕ Cancel
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Viewport -->
+          <div class="relative w-full aspect-[4/3] bg-black rounded-xl overflow-hidden border-2 border-black shadow-inner flex items-center justify-center">
+            <!-- Camera Stream -->
+            <video id="webcam" autoplay playsinline muted class="w-full h-full object-cover scale-x-[-1]"></video>
+
+            <!-- MediaPipe Face Landmarks Overlay -->
+            <canvas id="faceCanvas" class="absolute inset-0 w-full h-full scale-x-[-1] pointer-events-none"></canvas>
+
+            <!-- Astrological Laser Line -->
+            <div id="scannerLaser" class="scanner-laser hidden pointer-events-none"></div>
+
+            <!-- Target Reticle -->
+            <div id="scanTargetFrame" class="absolute inset-6 md:inset-10 border-2 border-dashed border-brandYellow/80 rounded-2xl pointer-events-none flex flex-col justify-between p-3 transition-opacity">
+              <div class="flex justify-between text-brandYellow text-xs font-mono font-bold">
+                <span>[ CHAKRA: SCANNING ]</span>
+                <span id="scanSignalMeter" class="text-brandYellow font-mono text-xs">SIG: SEARCHING...</span>
+              </div>
+              <div class="text-center">
+                <div class="inline-block px-3 py-1 bg-black/80 text-brandYellow text-xs font-mono font-bold rounded-lg border border-brandYellow/50 shadow">
+                  🎯 മുഖം ഫ്രെയിമിനുള്ളിൽ വെക്കുക
+                </div>
+              </div>
+              <div class="flex justify-between text-brandYellow text-xs font-mono font-bold">
+                <span>SATURN // ALIGNED</span>
+                <span>BIJU VOICE ON 🔊</span>
+              </div>
+            </div>
+
+            <!-- Camera Loading / Permission Box -->
+            <div id="camPlaceholder" class="absolute inset-0 bg-gray-900 text-white flex flex-col items-center justify-center p-6 text-center space-y-3">
+              <div class="text-5xl animate-bounce">📷</div>
+              <p class="font-bold text-base text-yellow-300" id="camStatusText">ക്യാമറ ആരംഭിക്കുന്നു...</p>
+              <p class="text-xs text-gray-300 max-w-xs">ക്യാമറ അനുമതി ചോദിക്കുമ്പോൾ ‘Allow’ നൽകുക.</p>
+            </div>
+          </div>
+
+          <!-- Live Biju Audio & Commentary Ticker -->
+          <div class="mt-4 p-3.5 bg-amber-50 border-2 border-black rounded-xl flex items-center gap-3 shadow-brutal-sm">
+            <div class="w-11 h-11 bg-brandYellow border-2 border-black rounded-full flex items-center justify-center text-2xl flex-shrink-0 shadow-brutal-sm relative" id="bijuEmoji">
+              🧙‍♂️
+              <div id="voiceWaveIndicator" class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-black animate-pulse hidden"></div>
+            </div>
+            <div class="flex-grow min-w-0">
+              <p class="text-xs font-black text-gray-500 uppercase tracking-wide flex items-center gap-1.5">
+                <span>🎙️ ബിജു സംസാരിക്കുന്നു:</span>
+              </p>
+              <p id="scannerStatusMessage" class="text-sm md:text-base font-black text-black leading-tight truncate">
+                ക്യാമറയിലേക്ക് നോക്കൂ... ഗ്രഹനില പരിശോധിക്കുന്നു...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= SCREEN 3: RESULT (MULTI-FORETELLING) ================= -->
+      <div id="screenResult" class="hidden space-y-4">
+        <div class="bg-white border-2 border-black rounded-2xl p-5 md:p-7 shadow-brutal-lg space-y-5 relative overflow-hidden">
+          
+          <!-- Certificate Header -->
+          <div class="flex items-center justify-between border-b-2 border-black pb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">📜</span>
+              <div>
+                <span class="font-display font-black text-xs md:text-sm tracking-wider uppercase text-black block leading-none">
+                  ഔദ്യോഗിക ജാതക സർട്ടിഫിക്കറ്റ്
+                </span>
+                <span class="text-xs text-gray-500 font-semibold">AI Astrometry Bureau of Kerala • Brahmasree Biju</span>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 text-xs font-black bg-brandGreen text-white border-2 border-black rounded-lg shadow-brutal-sm">
+              ✓ VERIFIED
+            </span>
+          </div>
+
+          <!-- Career Badge & Punchline -->
+          <div class="text-center space-y-2 py-1">
+            <p class="text-xs font-black text-gray-500 uppercase tracking-widest font-display">
+              🔮 BRAHMASREE BIJU SAYS…
+            </p>
+            <div class="inline-block px-5 py-2.5 bg-brandYellow border-2 border-black rounded-2xl shadow-brutal rotate-[-1deg]">
+              <h2 id="resultCareerTitle" class="text-xl md:text-2xl font-black text-black tracking-tight">
+                👨‍💻 SOFTWARE ENGINEER
+              </h2>
+            </div>
+            <p id="resultPunchline" class="text-base md:text-lg font-black text-brandOrange leading-snug px-2 pt-1">
+              “പക്ഷേ സ്വന്തം ജീവിതത്തിലെ bug ഇതുവരെ fix ചെയ്തിട്ടില്ല!”
+            </p>
+          </div>
+
+          <!-- Live Audio Speech Status & Replay Bar -->
+          <div id="audioStatusBox" class="p-3 bg-blue-50 border-2 border-black rounded-xl flex items-center justify-between text-xs font-bold text-blue-950 shadow-brutal-sm">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-brandYellow border-2 border-black flex items-center justify-center text-base shadow-brutal-sm">
+                <span id="audioPlayingIcon" class="animate-pulse">🔊</span>
+              </div>
+              <div>
+                <span id="audioStatusText" class="block font-black">ബിജു ജാതകം വായിക്കുന്നു...</span>
+                <span class="text-xs text-gray-500 font-medium">സ്പീക്കർ ഓൺ ആക്കി വെക്കൂ</span>
+              </div>
+            </div>
+            <button id="replayVoiceBtn" class="px-3 py-1.5 bg-white hover:bg-yellow-100 border-2 border-black rounded-lg shadow-brutal-sm text-xs font-black transition cursor-pointer flex items-center gap-1">
+              <span>🔄</span> മുഴുവൻ വീണ്ടും കേൾക്കാം
+            </button>
+          </div>
+
+          <!-- Multi-Foretelling Cards Grid (Detailed Satirical Reading - Reads Every Result) -->
+          <div class="space-y-3 pt-1">
+
+            <!-- Foretelling 0: Career & Destiny -->
+            <div id="cardCareer" class="p-3.5 bg-amber-50 border-2 border-black rounded-xl space-y-1 shadow-brutal-sm transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-amber-950 uppercase flex items-center gap-1.5 font-display">
+                  <span>💼</span> കരിയർ & തൊഴിൽ ജാതകം (Career Forecast)
+                </span>
+                <button onclick="readSingleSection('career')" class="text-xs bg-white hover:bg-amber-100 border border-black px-2 py-0.5 rounded shadow-brutal-sm font-bold cursor-pointer" title="ഇത് മാത്രം കേൾക്കാം">
+                  🔊 കേൾക്കാം
+                </button>
+              </div>
+              <p id="resultCareerReading" class="text-xs md:text-sm font-bold text-gray-800 leading-relaxed">
+                ഓഫീസിൽ ലാപ്ടോപ്പ് തുറന്നുവെച്ച് ഒളിച്ചിരിക്കാനുള്ള ജന്മവാസന കാണുന്നുണ്ട്!
+              </p>
+            </div>
+
+            <!-- Foretelling 1: Love & Marriage -->
+            <div id="cardLove" class="p-3.5 bg-pink-50 border-2 border-black rounded-xl space-y-1 shadow-brutal-sm transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-pink-700 uppercase flex items-center gap-1.5 font-display">
+                  <span>💘</span> പ്രണയ / വിവാഹ ജാതകം (Romance Forecast)
+                </span>
+                <button onclick="readSingleSection('love')" class="text-xs bg-white hover:bg-pink-100 border border-black px-2 py-0.5 rounded shadow-brutal-sm font-bold cursor-pointer" title="ഇത് മാത്രം കേൾക്കാം">
+                  🔊 കേൾക്കാം
+                </button>
+              </div>
+              <p id="resultLoveLife" class="text-xs md:text-sm font-bold text-gray-800 leading-relaxed">
+                മെസ്സേജ് അയച്ചാൽ സീൻ ചെയ്തിട്ട് റിപ്ലൈ തരാതിരിക്കുന്ന കടുത്ത ചൊവ്വാദോഷം കാണുന്നുണ്ട്!
+              </p>
+            </div>
+
+            <!-- Foretelling 2: Wealth & Financial Status -->
+            <div id="cardWealth" class="p-3.5 bg-emerald-50 border-2 border-black rounded-xl space-y-1 shadow-brutal-sm transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-emerald-800 uppercase flex items-center gap-1.5 font-display">
+                  <span>💰</span> ധനയോഗം & സമ്പാദ്യം (Wealth Forecast)
+                </span>
+                <button onclick="readSingleSection('wealth')" class="text-xs bg-white hover:bg-emerald-100 border border-black px-2 py-0.5 rounded shadow-brutal-sm font-bold cursor-pointer" title="ഇത് മാത്രം കേൾക്കാം">
+                  🔊 കേൾക്കാം
+                </button>
+              </div>
+              <p id="resultWealth" class="text-xs md:text-sm font-bold text-gray-800 leading-relaxed">
+                മാസാദ്യം ശമ്പളം ക്രെഡിറ്റ് ആകും, മൂന്നാം തീയതി ഇ.എം.ഐയും സ്വിഗ്ഗിയും അടിച്ചുമാറ്റും!
+              </p>
+            </div>
+
+            <!-- Foretelling 3: Lifestyle & Diet -->
+            <div id="cardLifestyle" class="p-3.5 bg-amber-50 border-2 border-black rounded-xl space-y-1 shadow-brutal-sm transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-amber-800 uppercase flex items-center gap-1.5 font-display">
+                  <span>🍕</span> ജീവിതശൈലി & ആരോഗ്യം (Lifestyle Forecast)
+                </span>
+                <button onclick="readSingleSection('lifestyle')" class="text-xs bg-white hover:bg-amber-100 border border-black px-2 py-0.5 rounded shadow-brutal-sm font-bold cursor-pointer" title="ഇത് മാത്രം കേൾക്കാം">
+                  🔊 കേൾക്കാം
+                </button>
+              </div>
+              <p id="resultLifestyle" class="text-xs md:text-sm font-bold text-gray-800 leading-relaxed">
+                രാത്രി 12 മണിക്ക് റീൽസ് കണ്ട് കണ്ണ് കഴയ്ക്കൽ. രാവിലെ അലാറം അടിച്ചാൽ 8 പ്രാവശ്യം സ്നൂസ് അടിക്കുന്ന അപൂർവ്വ ഏകാഗ്രത!
+              </p>
+            </div>
+
+            <!-- Foretelling 4: Biju's Astrological Remedy (Pariharam) -->
+            <div id="cardPariharam" class="p-3.5 bg-purple-50 border-2 border-black rounded-xl space-y-1 shadow-brutal-sm transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-purple-900 uppercase flex items-center gap-1.5 font-display">
+                  <span>🧘‍♂️</span> ബിജുവിന്റെ പരിഹാരം (Astrological Remedy)
+                </span>
+                <button onclick="readSingleSection('pariharam')" class="text-xs bg-white hover:bg-purple-100 border border-black px-2 py-0.5 rounded shadow-brutal-sm font-bold cursor-pointer" title="ഇത് മാത്രം കേൾക്കാം">
+                  🔊 കേൾക്കാം
+                </button>
+              </div>
+              <p id="resultPariharam" class="text-xs md:text-sm font-bold text-gray-900 leading-relaxed">
+                നാളെ രാവിലെ കൃത്യം 6 മണിക്ക് എഴുന്നേറ്റ് ലാപ്ടോപ്പ് തുറക്കാതെ അരമണിക്കൂർ ആകാശത്തേക്ക് നോക്കി ഇരിക്കുക.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Share / Copy Action -->
+          <div class="pt-1">
+            <button id="shareBtn" class="w-full py-2.5 px-3 bg-cyan-100 hover:bg-cyan-200 text-black border-2 border-black rounded-xl font-black text-xs md:text-sm shadow-brutal-sm flex items-center justify-center gap-2 transition cursor-pointer">
+              <span>📋</span>
+              <span id="shareBtnText">ജാതക ഫലം കോപ്പി ചെയ്യുക / Share</span>
+            </button>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <button id="retryBtn" class="py-3.5 px-4 bg-brandYellow hover:bg-yellow-400 text-black font-black text-base rounded-xl border-2 border-black shadow-brutal hover:shadow-brutal-active active:translate-x-0.5 active:translate-y-0.5 transition flex items-center justify-center gap-2 cursor-pointer">
+              <span>🔮</span>
+              <span>വീണ്ടും നോക്കാം</span>
+            </button>
+            <button id="newScanBtn" class="py-3.5 px-4 bg-white hover:bg-gray-100 text-black font-black text-base rounded-xl border-2 border-black shadow-brutal hover:shadow-brutal-active active:translate-x-0.5 active:translate-y-0.5 transition flex items-center justify-center gap-2 cursor-pointer">
+              <span>📸</span>
+              <span>മറ്റൊരാളെ സ്കാൻ ചെയ്യാം</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full border-t-2 border-black bg-white px-4 py-3 text-center text-xs text-gray-700 font-bold">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>🔮 <strong>ജാതകംGPT</strong> — 100% കോമഡി സറ്റയർ | Brahmasree Biju AI Labs</p>
+      <p class="text-gray-500 font-medium">മുഖം സ്കാൻ ചെയ്യൂ. ഭാവി കേൾക്കൂ. വിശ്വസിക്കരുത്.</p>
+    </div>
+  </footer>
+
+  <!-- Audio Elements for Brahmasree Biju Voice -->
+  <audio id="bijuAudio" preload="auto" class="hidden"></audio>
+  <audio id="bijuScanAudio" preload="auto" class="hidden"></audio>
+
+  <!-- Google MediaPipe Face Detection & Camera Utils -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js" crossorigin="anonymous"></script>
+  <!-- Main Application Script -->
+  <script src="./app.js" onerror="this.onerror=null;this.src='./static/app.js'"></script>
+</body>
+</html>
 
