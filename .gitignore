@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+env/
+.pytest_cache/
+test_sample.mp3
+precache_all.py
+test_v2.py
